@@ -1,0 +1,112 @@
+<style>
+	
+	h1.blue {color:blue; size:40px}
+	h1{color:green; size:40px}
+	h2{color:red}
+#mag
+	{
+  display: inline-block;
+  width: 600px;
+  height: 40px;
+  font-weight: bold;
+  font-size: medium;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0,0,0,.5);
+  user-select: none;
+  padding: 5px 5px 5px;
+  border: 1px solid rgb(84, 91, 91);
+  border-radius: 5px;
+  outline: none;
+  background: rgb(146, 36, 69) linear-gradient(rgb(146, 36, 69), rgb(146, 36, 69) 80%);
+  box-shadow:
+   0 6px rgb(77, 84, 83),
+   0 3px 15px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  transition: .2s;
+} 
+	
+
+}
+button.button1
+{
+  display: inline-block;
+  width: 150px;
+  height: 70px;
+  font-weight: bold;
+  font-size: large;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0,0,0,.5);
+  user-select: none;
+  padding: 5px 5px 5px;
+  border: 1px solid rgb(84, 91, 91);
+  border-radius: 5px;
+  outline: none;
+  background: rgb(142, 142, 137) linear-gradient(rgb(206, 204, 202), rgb(142, 142, 137) 80%);
+  box-shadow:
+   0 6px rgb(77, 84, 83),
+   0 3px 15px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  transition: .2s;
+} 
+button.button2
+{
+  display: inline-block;
+  width: 150px;
+  height: 80px;
+  font-weight: bold;
+  font-size: large;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0,0,0,.5);
+  user-select: none;
+  padding: 5px 5px 5px;
+  border: 1px solid rgb(84, 91, 91);
+  border-radius: 5px;
+  outline: none;
+  background: rgb(142, 142, 137) linear-gradient(rgb(206, 204, 202), rgb(142, 142, 137) 80%);
+  box-shadow:
+   0 6px rgb(77, 84, 83),
+   0 3px 15px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  transition: .2s;
+} 
+.button2:hover 
+{
+  background: rgb(41, 106, 167) linear-gradient(rgb(249, 240, 57), rgb(41, 106, 167) 80%);
+}
+
+.button1:hover 
+{
+  background: rgb(41, 106, 167) linear-gradient(rgb(249, 240, 57), rgb(41, 106, 167) 80%);
+}
+.button1:active 
+{
+  background: rgb(41, 106, 167) linear-gradient(rgb(249, 240, 57), rgb(41, 106, 167));
+  box-shadow:
+   0 2px rgb(86,38,6),
+   0 1px 6px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  -webkit-transform: translate(0, 4px);
+  transform: translate(0, 4px);
+}
+.button2:active 
+{
+  background: rgb(41, 106, 167) linear-gradient(rgb(249, 240, 57), rgb(41, 106, 167));
+  box-shadow:
+   0 2px rgb(86,38,6),
+   0 1px 6px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  -webkit-transform: translate(0, 4px);
+  transform: translate(0, 4px);
+}
+
+	
+ 
+	</style>

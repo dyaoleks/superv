@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V16</title>
+	<title>IS Supervision V 1.0</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="http://fire.ck.ua/wp-content/uploads/2017/12/Emb_1.png" type="image/x-icon"><!-- емблемка на вкладці браузеру-->
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="{% static 'imgs/icons/favicon.ico'%}">
 <!--===============================================================================================-->
@@ -29,7 +30,11 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
+<style>
+.login-error {	color: red;}
+</style>
+
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'img/bg-01.jpg' %})" >
 			<div class="wrap-login100 p-t-30 p-b-50">
@@ -39,7 +44,7 @@
 				<form action="/home/login/" method="POST" class="login100-form validate-form p-b-33 p-t-5"> {% csrf_token %}
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input type="text" name="username" class="input100" type="text" name="username" placeholder="Андрій Петренко">
+						<input type="text" name="username" class="input100" type="text" name="username" placeholder="oleg_petrenko">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
@@ -49,7 +54,7 @@
 					</div>
 					<div class="form-group">
                              {% if login_error %}
-                                <span class="login-error"><b>{{ login_error }}</b></span>
+						<span class="login-error"><b><center>{{ login_error }}</center></b></span>
                              {% endif %}
 
 					<div class="container-login100-form-btn m-t-32">

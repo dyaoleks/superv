@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block login %}
+
+            <div>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for k in messages %}
+                        <li style="color: red"> {{ k }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div><br>
+            <div style="color: blue">
+
+            {% if sr %}
+                {% for k in sr %}
+                <table align="center" width="95%" cellspacing="0" cellpadding="2" border="0px"  >
+                    <tr>
+                        <td width="80">Date: </td>
+                        <td>{{ k.pub_date }}</td>
+                    </tr>
+                    <tr>
+                        <td>Title: </td>
+                        <td><a href="/articles/{{ k.id }}/">{{ k.headline }}</a>
+                    </tr>
+                    <tr>
+                        <td>Content: </td>
+                        <td>{{ k.content }}</td>
+                    </tr>
+                    <tr>
+                        <td>Author: </td>
+                        <td>{{ k.reporter }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <hr>
+                {% endfor %}
+            {% endif %}
+
+{% endblock login %}

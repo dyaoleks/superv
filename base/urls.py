@@ -21,4 +21,5 @@ from django.conf import settings
 urlpatterns = [
     url(r'^$', views.start, name='start'),
     url(r'^home/$', views.home, name='home'),
+
    ]

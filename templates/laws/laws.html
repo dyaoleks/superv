@@ -1,0 +1,21 @@
+
+<html>
+<body>
+Привет андрей
+{{ object.headline }} {{ object.supervchapter.full_name }} {{ object.descr_name }}
+<Div class="container">
+  <!--{% for item in object.articleimage_set.all %}-->
+    <!--<div class="row">-->
+        <!--<img src="{{item.image.url}}">-->
+    <!--</div>-->
+    <!--{% endfor %}-->
+
+      {% for item in object.description_set.all %} <!--item -любое слово; in object - это переменная из вьюхи; .description - название модели маленькими буквами; _set.all- выбрать все записи-->
+    <div class="row">
+      <p>  {{item.descr_name}}<br>{{item.law_title}}<br>{{item.law_chapter}}
+    </div>
+    {% endfor %}
+
+</Div>
+</body>
+</html>

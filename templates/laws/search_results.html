@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+{% if articles %}
+    <p>Found {{ articles|length }} article{{ articles|pluralize }}.</p>
+    <ul>
+        {% for article in articles %}
+        <li>{{ article.headline }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No books matched your search criteria.</p>
+{% endif %}
+</body>
+</html>

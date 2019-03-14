@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-from . models import *
+from laws . models import *
 from django.contrib import auth
+
 
 def start(request):
     return render(request, 'supervision.html', locals())
@@ -10,4 +10,8 @@ def start(request):
 def home(request):
     username = auth.get_user(request).username
     context = {'username': username}
-    return render(request, 'base.html', locals())
+    obj = ArticleImage.objects.filter(is_active=True )
+    objects_images = ArticleImage.objects.filter(is_active=True, is_main=True)
+    print(objects_images)
+    return render(request, 'base/home.html', locals())
+

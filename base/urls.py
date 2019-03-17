@@ -21,5 +21,6 @@ from django.conf import settings
 urlpatterns = [
     url(r'^$', views.start, name='start'),
     url(r'^home/$', views.home, name='home'),
-
+    url(r'^info/$', views.info, name='info'),
+    url(r'^info/instruction/$', views.instruction, name='instruction'),
    ]

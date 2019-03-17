@@ -1,0 +1,18 @@
+ {% load static %}
+  <!-- Header -->
+  <header class="masthead d-flex">
+
+
+    <div class="container text-center my-auto">
+      <h1 class="mb-1"><a class="js-scroll-trigger" href="/home/#page-top"><img class="mr-6" src="{% static 'img/icons/supervision_logo.png' %}" alt="Generic placeholder image"></a>  SUPER VISION</h1>
+      <h3 class="mb-5">
+        <em>Система підтримки прийняття рішень державного інспектора</em>
+      </h3>
+      {% if username %}
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="/logout/"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Вийти ({{ username }})</a>
+      {% else %}
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="/login/"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Увійти</a>
+      {% endif %}
+    </div>
+    <div class="overlay"></div>
+  </header>

@@ -26,74 +26,27 @@
   <link  href="{% static 'css/simple-line-icons.css'%}" rel="stylesheet" type="text/css">
 
   <!-- Custom CSS -->
-  <link href="{% static 'css/stylish-portfolio.min.css'%}" rel="stylesheet" > 
+  <link href="{% static 'css/stylish-portfolio.min.css'%}" rel="stylesheet" >
   <link href="{% static 'css/styles.css'%}" rel="stylesheet" >
   <link href="{% static 'css/left_vert_menu.css'%}" rel="stylesheet" >
+
 
 </head>
 
 <body id="page-top">
 
-  <!-- Navigation -->
-  <a class="menu-toggle rounded" href="#">
-    <i class="fas fa-bars"></i>
-  </a>
-  <nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#page-top">Стуктура сервісу</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#page-top">Home</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#about">Про інформаційну систему</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#services">Розрахунок ступеня ризику провадження господарської діяльності</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#contact">Contact</a>
-      </li>
-    </ul>
-  </nav>
+{% include 'navigation_main.html' %}
+ {% include 'header.html' %}
 
-  <!-- Header -->
-  <header class="masthead d-flex">
-    <div class="container text-center my-auto">
-      <h1 class="mb-1">SUPER VISION</h1>
-      <h3 class="mb-5">
-        <em>Система підтримки прийняття рішень державного інспектора</em>
-      </h3>
-      {% if username %}
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="/logout/"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Вийти ({{ username }})</a>
-      {% else %}
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="/login/"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Увійти</a>
-      {% endif %}
-    </div>
-    <div class="overlay"></div>
-  </header>
-
-  {% if username %}
-
-
-   {% include 'about.html' %}
-
+ {% if username %}
 
      {% block content %}
+
      {% endblock %}
 
   <!-- Main -->
 
   {% endif %}
-
-
-
-
-
 
   {% include 'footer.html' %}
 
@@ -106,7 +59,7 @@
 
   <!-- Bootstrap core JavaScript -->
   <!--===============================================================================================-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
    <!--===============================================================================================-->
   <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
 <!--===============================================================================================-->
@@ -115,7 +68,13 @@
 
   <!-- Custom scripts for this template -->
  <script src="{% static 'js/stylish-portfolio.min.js'%}"></script>
-<script src="{% static 'js/collaps.js'%}"></script>
+    <script src="{% static 'js/collaps.js'%}"></script>
+
+  <!-- litezoom для відображення фото на сторінки нормативного документу -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/strip.pkgd.min.js'%}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/strip.css'%}">
 
 </body>
 

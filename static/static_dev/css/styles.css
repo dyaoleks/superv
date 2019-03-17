@@ -1,0 +1,82 @@
+#correction_icons {
+    font-weight: 900;
+    padding-top: 16px;}
+
+#correction_icons_1 {
+    padding-top: 35px;}
+
+#correction_icons_2 {
+    padding-top: 20px;}
+/***** slideart (start) *****/
+
+.slider {
+
+    width: 450px;
+    height: 400px;
+
+    margin-left: -50px;
+}
+
+.slider-nav {
+
+    width: 450px;
+    height: 90px;
+    margin-left: -50px;
+}
+
+#art_img_big {
+    height: 290px;
+    margin-top: 20px;
+    }
+
+#art_img_sm {
+    height: 150px;
+    box-shadow: inset 5px 5px 10px 3px #ccc;
+    box-shadow: 0.8em 0.8em 10px rgba(122,122,122,0.5);
+    }
+.container-photo {
+    margin-left: 50px;
+}
+
+.container-content {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.container-content h4 p {text-indent: 1.5em; margin-top: 0; text-align: -webkit-auto;}
+.container-content h3 {color: #0015a5;}
+.container-content h4 {font-weight: 400}
+
+.top-title {
+      position: absolute; /* блок занимает ширину содержимого, max-width её ограничивает */
+
+      right: 50;
+}
+
+/***** Картинка у меню Navigation *****/
+
+.mr-6sm { width: 40px; height: 40px;}
+.mr-6 { width: 120px; height: 120px;}
+
+/***** Стиль надпису SUPERVISION у Header.html *****/
+
+.mb-1 h1 {
+  overflow: hidden;
+  text-shadow: 0 0 tomato,
+               0 0 yellowgreen,
+               0 0 skyblue;
+  color: transparent;
+  transition: all 1s;
+  }
+
+.mb-1 h1:hover {
+    text-shadow: -400px 0 tomato,
+                 400px 0 yellowgreen,
+                 0 0 skyblue;
+    }
+
+#instr {
+    height: 30px;
+    width: 30px;
+}
+
+

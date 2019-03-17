@@ -1,0 +1,44 @@
+{% load static %}
+
+ <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars" id="correction_icons"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+       {% if username %}
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Стуктура сервісу <h6 style="margin-top: -15px; "> Вітаємо, {{ username }}</h6></a></li>
+       {% else %}
+      <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Стуктура сервісу </a></li>
+       </li>
+      {% endif %}
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/home/#page-top"><img class="mr-6sm" src="{% static 'img/icons/supervision_logo.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href=/info/><img class="mr-6sm" src="{% static 'img/icons/info.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbspІнформація про систему </a>
+      </li>
+
+      {% if username %}
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/home/#about"><img class="mr-6sm" src="{% static 'img/icons/grom_ob.jpg' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbspГромадські об'єкти </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/home/#prom"><img class="mr-6sm" src="{% static 'img/icons/prom_ob.jpg' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Виробничі об'єкти </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/home/#services"><img class="mr-6sm" src="{% static 'img/icons/norms.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Перелік документів</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#contact">Contact</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/logout/"><img class="mr-6sm" src="{% static 'img/icons/logout.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbspВийти з системи</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>

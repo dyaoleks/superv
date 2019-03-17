@@ -6,7 +6,6 @@ from django.contrib import auth
 def start(request):
     return render(request, 'supervision.html', locals())
 
-
 def home(request):
     username = auth.get_user(request).username
     context = {'username': username}
@@ -15,3 +14,8 @@ def home(request):
     print(objects_images)
     return render(request, 'base/home.html', locals())
 
+def info(request):
+    return render(request, 'base/info.html', locals())
+
+def instruction(request):
+    return render(request, 'base/instruction.html', locals())

@@ -53,7 +53,7 @@ class Description(models.Model):
 
 class ArticleImage(models.Model):
     objecttype = models.ForeignKey(ObjectType, on_delete=models.CASCADE, blank=True, null=True, default=None)
-    description = models.ForeignKey(Description, on_delete=models.CASCADE, blank=True, null=True, default=None)
+
     image = models.ImageField(upload_to='products_images/')
     is_active = models.BooleanField(default=True)
     is_main = models.BooleanField(default=False)

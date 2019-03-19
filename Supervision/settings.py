@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'base',
     'landing',
     'laws',
+    'calc',
+    'norms',
+
 ]
 
 MIDDLEWARE = [

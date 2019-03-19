@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+ <!-- Portfolio -->
+  <section class="content-section" id="dbn">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Перелік нормативних документів</h3>
+        <h2 class="mb-5">Дозвіллєві заклади </h2>
+      </div>
+    </div>
+<div class="section section">
+    <h1>Last added docks</h1>
+{% for item in last_added_docks %}
+
+<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
+{% if item.link_name %}
+<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% else %}
+<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
+<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% endif %}
+{% endfor %}
+
+</div>
+
+<div class="section section-1">
+    <h1>ДБН</h1>
+{% for item in docs_dbn %}
+
+<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
+{% if item.link_name %}
+<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% else %}
+<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
+<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% endif %}
+{% endfor %}
+
+</div>
+
+<div class="section section-2">
+    <h1>СНиП</h1>
+{% for item in docs_snip %}
+
+<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
+{% if item.link_name %}
+<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% else %}
+<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
+<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% endif %}
+{% endfor %}
+
+</div>
+
+<div class="section section-2">
+    <h1>ППБ</h1>
+{% for item in docs_rules %}
+
+<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
+{% if item.link_name %}
+<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% else %}
+<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
+<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
+{% endif %}
+{% endfor %}
+
+</div>
+
+	  <!--&lt;!&ndash; Slider &ndash;&gt;-->
+
+	<!--<div class="container-photo">-->
+		<!--<div class="row centered">-->
+
+            <!--{% for item in object.articleimage_set.all %}-->
+                <!--<div> <a href="{{ item.image.url }}" class="strip" data-strip-group="shared-options" ><img src="{{ item.image.url }}"  title="Натисніть для збільшення фото"  id="art_img_sm" hspace="10" vspace="10"></a> </p></div>-->
+			<!--{% endfor %}-->
+ 		    <!--<span class="top-title"><em><b>Дата публікації:</b> {{object.pub_date}}<br></em></span>-->
+            <!--{% for item in object.description_set.all %} &lt;!&ndash;item -любое слово; in object - это переменная из вьюхи; .description - название модели маленькими буквами; _set.all- выбрать все записи&ndash;&gt;-->
+
+		<!--</div>-->
+	<!--</div>-->
+    <!--<div class="container-content">-->
+        <!--<div ><h3><b> <em> Вимоги нормативно-правового акту:</em></b></h3>  <h4><p> {{item.descr_name}}</h4></div>-->
+        <!--<span ><h4><em><b>Посилання на норми:</b> <p><u>{{item.law_title}}</u><b>&nbsp;&nbsp;({{item.law_chapter}})</b></p></h4></em></span><br>-->
+	<!--</div>-->
+			<!--{% endfor %}-->
+
+  </section>
+
+
+{% endblock %}

@@ -27,6 +27,11 @@ urlpatterns = [
     url(r'^', include('base.urls')),
     url(r'^', include('landing.urls')),
     url(r'^', include('laws.urls')),
+    url(r'^', include('calc.urls')),
+    url(r'^', include('norms.urls')),
+
+
+
 ]\
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

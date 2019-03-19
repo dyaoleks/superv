@@ -4,9 +4,6 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
-
 class SupervChapter(models.Model):
     full_name = models.CharField(max_length=256)
     is_active = models.BooleanField(default=True)

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="content-section" id="risk">
+	<div class="container">
+		<div class="content-section-heading text-center">
+          <h3 class="text-secondary mb-0">Оберіть критерії субєкта господарювання</h3>
+          <h2><font color="grey">Оберіть <u><font color="blue">один </font>показник</u> з критерію, що відноситься до Вашого суб'єкту господарювання</font></h2></div></div>
+
+		<div class="container">
+		<div class="row">
+        {% if level.count > 0 %}
+        <div>
+        <table cellspacing="2" align="center" border="0" cellpadding="3" width="1200" >
+            <h5><thead><th><h5>Критерії</h5></th><th><h5>Показники критеріїв</h5></th><th><h5>Кількість балів</h5></th><th><h5>Статус позиції</h5></th><th><h5>Зміна статусу</h5></th></thead></h5>
+			<hr style="border: 5px solid grey; border-radius: 1px;">
+			{% for item in level %}
+
+			<tr>
+
+				<td width="300px;">
+					<h6>
+					{% if item.name == None %}
+					<h6></h6>
+					{% else %}
+					{{ item.name }}
+					</h6>
+                    {% endif %}
+				</td>
+				<td width="520px;">{{ item.index_name }}</td>
+				<td width="60px;">
+					<h6>
+					{% if item.scores == None %}
+					<h6></h6>
+					{% else %}
+					{{ item.scores }}
+					</h6></td>
+					{% endif %}
+				<td>
+					{% if item.is_main == True %}
+					 <h6><font color="green">Обрано</font></h6>
+					{% else %}
+					<h6><font color="red">Не обрано</font></h6>
+					{% endif %}
+				</td>
+				<td><a href="edit/{{item.id}}#vybir" >Змінити </a>
+            </tr>
+           {% endfor %}
+
+		</table>
+        {% endif %}
+		</div>
+		</div>
+		</div>
+<hr>
+    <div class="container">
+		<div class="row-left">
+			<h6 class=" mb-0">
+			<br>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Якщо об’єкт може бути одночасно віднесено до двох або більше показників критерію, застосовується показник з найбільшою кількістю балів.
+			<br>**   &nbsp;&nbsp;Критерій застосовується виключно до об’єктів, що будуються.
+			<br>*** Майнова шкода вважається заподіяною у великих розмірах, якщо прямі збитки становлять суму, яка в 300 і більше разів перевищує неоподатковуваний мінімум доходів громадян, а в особливо великих розмірах - якщо прямі збитки становлять суму, яка в 1000 і більше разів перевищує неоподатковуваний мінімум доходів громадян.
+			</h6>
+		</div>
+	</div> <br>
+	<hr style="border: 15px solid grey; border-radius: 5px;">
+    <div class="aggregate-sum-scores">
+
+
+
+		{% if total_level.scores__sum  > 0  %}
+
+
+		<h2>Ообрані Вами параметри відповідають <font color="blue"> {{ total_level.scores__sum }} </font> балу(ам). </h2>
+	{% endif %}
+    {% if total_level.scores__sum  >= 41  %}
+        <h2>Суб'єкт господарювання відноситься до <font color="red"> ВИСОКОГО </font> ступеня ризику від провадження господарської діяльності</h2>
+		<a href="high/"><center><button class="btn btn-danger" > Дійзнатися більше про ВИСОКИЙ ступінь ризику </button></center></a>
+		{% elif total_level.scores__sum > 20   %}
+        <h2>Суб'єкт господарювання відноситься до <font color="orange"> СЕРЕДНЬОГО </font> ступеня ризику від провадження господарської діяльності</h2>
+		<a href="middle/"><center><button class="btn btn-warning" > Дійзнатися більше про СЕРЕДНІЙ ступінь ризику </button></center></a>
+		{% elif total_level.scores__sum >= 1 %}
+        <h2>Суб'єкт господарювання відноситься до <font color="green"> НЕЗНАЧНОГО </font> ступеня ризику від провадження господарської діяльності</h2>
+	<a href="low/"><center><button class="btn btn-success"> Дійзнатися більше про НЕЗНАЧНИЙ ступінь ризику </button></center></a>
+		{% else %}
+        <h2></h2>
+    {% endif %}
+    </div>
+
+
+
+	    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name" />
+        </p>
+		<p>
+			{% if username  %}
+            <label></label><br>
+            <input type="hidden" value=" {{ username }}" name="username" />
+			{% endif %}
+        </p>
+			<p>
+            <label>Введите возраст</label><br>
+            <input type="text" name="index_name" />
+        </p>
+        <p>
+            <label>Введите возраст</label><br>
+            <input type="number" name="scores" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+
+
+			{% if username  %}
+             {{ email }} {{ first_name }}
+			{% endif %}
+
+
+
+{% endblock %}
+
+
+
+  </section>
+
+
+
+
+

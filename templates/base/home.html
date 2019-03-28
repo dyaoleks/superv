@@ -3,6 +3,8 @@
 
 {% block content %}
 
+
+
 <!-- About -->
 <section class="content-section bg-light" id="about">
 
@@ -1246,8 +1248,21 @@
           <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
           <p class="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
             <a href="https://unsplash.com/">Unsplash</a>!</p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
-         <div class="accordion" id="accordionExample">
+
+
+			<!--поле для пошуку-->
+<div class="container-fluid">
+    <div class="row ">
+        <div class="span6" style="float: none; margin: 0 auto;">
+      <form class="form-inline" id="search" action="/search/" method="post" > {% csrf_token %}
+          <input class="form-control"  type="text" placeholder="Введіть запит" aria-label="Search" name="srh">
+		  <button class="btn btn-warning " type="submit">Шукати</button>
+      </form>
+	  </div>
+	</div>
+
+
+			<div class="accordion" id="accordionExample">
 
         </div>
       </div>
@@ -1264,10 +1279,13 @@
       <div class="content-section-heading">
         <h3 class="text-secondary mb-0">Перелік</h3>
         <h2 class="mb-5">Нормативно-правових актів, що використовуються для проведення перевірок</h2>
-      </div>
+	  </div>
+
+
       <div class="row">
+
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <a href="/norm/#dbn"><span class="service-icon rounded-circle mx-auto mb-3" id="correction_icons_1" >
+			<a href="/norm/#dbn"><span class="service-icon rounded-circle mx-auto mb-3" id="correction_icons_1" >
             <i class="icon-screen-smartphone"></i>
 			  </span></a>
           <h4>
@@ -2464,6 +2482,27 @@
 
 	</ul>
 	</nav>
+
+	<!-- Callout - ступені ризику -->
+  <section class="callout-2" id="risc">
+    <div class="container text-center">
+      <h2 class="mx-auto mb-5">Для визначення ступеня ризику
+        <em>від провадження</em>
+         господарської діяльності</h2>
+      <a class="btn btn-primary btn-xl" href="/level/#risk">Натискай!</a>
+    </div>
+  </section>
+  <!-- Portfolio -->
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+      </div>
+
+    </div>
+  </section>
+
 
 <script type="text/javascript" src="index_files/jquery.js"></script>
 <script type="text/javascript">

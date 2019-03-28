@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2><font color="grey">{{ level.index_name }}</font></h2>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="span6" style="float: none; margin: 0 auto;">
+
+            <form class="form" method="POST" id="vybir"> {% csrf_token %}
+                <div class="form-group mb-2">
+                    <img class="mr-6sm" src="{% static 'img/icons/green.png' %}" alt="Generic placeholder image"><label >&nbsp;&nbsp;&nbsp;Обрати позицію &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </label>
+                   <input type="checkbox" value="1" name="is_main" />
+                </div>
+                <div class="form-group mb-2">
+                    <img class="mr-6sm" src="{% static 'img/icons/red.png' %}" alt="Generic placeholder image"><label  >&nbsp;&nbsp;&nbsp;Скасувати позицію &nbsp;&nbsp; </label>
+                    <input type="checkbox" value="0" name="is_main" />
+                    {% if username %}
+                    <input type="hidden" value="{{ username }}" name="username" /> <!--для передачі ідентифікатору у базу даних (+ дивися view)-->
+                    {% endif %}
+                </div>
+                    <input type="submit" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Змінити&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" class="btn btn-primary mb-2">
+            </form>
+
+
+         </div>
+    </div>
+</div>
+
+
+{% endblock %}

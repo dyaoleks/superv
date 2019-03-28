@@ -41,8 +41,10 @@
  {% if username %}
 
      {% block content %}
+     {% endblock content %}
 
-     {% endblock %}
+     {% block search %}
+     {% endblock search %}
 
   <!-- Main -->
 
@@ -72,6 +74,7 @@
 
   <!-- litezoom для відображення фото на сторінки нормативного документу -->
 
+<script type="text/javascript" src="{% static 'js/scripts.js'%}"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="{% static 'js/strip.pkgd.min.js'%}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/strip.css'%}">

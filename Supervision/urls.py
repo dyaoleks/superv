@@ -27,8 +27,9 @@ urlpatterns = [
     url(r'^', include('base.urls')),
     url(r'^', include('landing.urls')),
     url(r'^', include('laws.urls')),
-    url(r'^', include('calc.urls')),
     url(r'^', include('norms.urls')),
+
+    url(r'^', include('level.urls')),
 
 
 

@@ -4,6 +4,9 @@
 
 
 {% block content %}
+
+
+
  <!-- Portfolio -->
   <section class="content-section" id="dbn">
     <div class="container">
@@ -13,7 +16,19 @@
       </div>
     </div>
 <div class="section section">
-    <h1>Last added docks</h1>
+
+    		  					  <!--поле для пошуку-->
+<div class="container-fluid">
+    <div class="row ">
+        <div class="span6" style="float: none; margin: 0 auto;">
+      <form class="form-inline" id="search" action="/search/" method="post" > {% csrf_token %}
+          <input class="form-control"  type="text" placeholder="Введіть запит" aria-label="Search" name="srh">
+		  <button class="btn btn-warning " type="submit">Шукати</button>
+      </form>
+	  </div>
+	</div>
+  </div>
+    <h1>Останні додані документи</h1>
 {% for item in last_added_docks %}
 
 <!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->

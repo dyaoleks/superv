@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+ <!-- Portfolio -->
+  <section class="content-section" id="dbn">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Перелік нормативних документів</h3>
+        <h2 class="mb-5">Дозвіллєві заклади </h2>
+      </div>
+    </div>
+<div class="section section">
+
+            <form action="" method="post" id="" class="" > {% csrf_token %}
+            <!--<input type="checkbox" name="{{form.is_main.name}}" value="">-->
+
+
+    {% for item in all_books %}
+    {{ item.name }}  Вартість:
+    {{ item.price }}
+                {{form.is_main}}<br>
+     <!--<input type="checkbox" name="{{form.is_main.value}}" value="{{True}}"><br>-->
+    {% endfor %}
+
+
+    {{ all_books_price.price__sum }}
+                {% if input_success %}
+        <div><center><span class="input-success"><b>{{ input_success }}</b></span></center></div>
+    {% endif %}
+            <button type="submit" class="button btn btn-primary bnt-buy">Розрахунок</button>
+            <!--data-criteria_name="{{summary.id}}"-->
+
+
+        </form>
+
+
+
+
+    <!--{% for item in all_books %}-->
+    <!--{{ item.name }}  Вартість:-->
+    <!--{{ item.price }}-->
+        <!--{{form.is_main.name}}<br>-->
+    <!--{% endfor %}-->
+
+
+    <!--{{ all_books_price.price__sum }}-->
+
+
+    <!--<h1>Розрахунок ступеня ризику субєктів господарювання</h1>-->
+    <!--&lt;!&ndash;тренування по формі кодінг &ndash;&gt;-->
+    <!--<div>-->
+        <!--<form action="" id="form_choosing_criteria" class="form-inline">-->
+            <!--<input type="number" class="form-control" id="number">-->
+            <!--<button type="submit" class="button btn btn-primary bnt-buy">Розрахунок</button>-->
+        <!--</form>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;моя форма &ndash;&gt;-->
+    <!--<div>-->
+        <!--<form action="" id="form_choosing_criteria_my" class="" > {% csrf_token %}-->
+            <!--<input type="checkbox" name="" value="Bike" id="is_main">-->
+
+            <!--&lt;!&ndash;{% for item in all_criterias %}&ndash;&gt;-->
+                <!--&lt;!&ndash;<div>{{ item.name }}<br> {{item.indexes.index_name}}&ndash;&gt;-->
+                    <!--&lt;!&ndash;.    Кількість балів: {{item.indexes.scores}}&ndash;&gt;-->
+                    <!--&lt;!&ndash;{{item.is_main}}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<br> </div>&ndash;&gt;-->
+			<!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+            <!--{{ form.as_ul}}-->
+            <!--<button type="submit" class="button btn btn-primary bnt-buy">Розрахунок</button>-->
+            <!--&lt;!&ndash;data-criteria_name="{{summary.id}}"&ndash;&gt;-->
+
+
+        <!--</form>-->
+
+
+
+    <!--{% if username %}-->
+
+
+    <!--<div>-->
+        <!--{{ form.as_ul}}-->
+    <!--</div>-->
+
+
+<!--<form action="" method="post">{% csrf_token %}-->
+
+       <!--&lt;!&ndash;&lt;!&ndash;пункт 1. Розділ 1&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="title-sm"><h6>У позиції 1 записується двозначний код регіону України </h6></div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<table align="center" width="100%" cellspacing="0" cellpadding="2" border="0 px" >&ndash;&gt;-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="3%">1| </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="20%"> {{form.region_dg}} </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="10%"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="7%">1.Регіон </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="60%">   {{form.region_txt}} </td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr> </table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;пункт 2. Розділ 1&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="title-sm"><h6>У позиції 2 записується тризначний код району, встановлений у регіоні територіальним органом ДСНС.</h6></div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<table align="center" width="100%"   cellspacing="0" cellpadding="2" border="0 px">&ndash;&gt;-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="3%">2| </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="20%"> {{form.district_dg}} </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="10%"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="7%">2. Район  </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="60%">  <input type="text" class="form-control form-control-sm" id="district_txt" value="{{request.POST.district_txt}}" name="{{form.district_txt.name}}" placeholder="Назва міста, району, району міста">&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;</td> </tr> </table>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash;span error&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<table align="center" width="100%" cellspacing="0" cellpadding="2" border="0px">&ndash;&gt;-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="50%"><span class="form-error"><b>{{ form.district_dg.errors }}</b></span></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="50%"><span class="form-error"><b> {{ form.district_txt.errors }}</b></span></td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr></table>&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;&lt;!&ndash;пункт 3. Розділ 1&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="title-sm"><h6>У позиції 3 записується код типу населеного пункту</h6> </div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<table align="center" width="100%" cellspacing="0" cellpadding="2" border="0x px">&ndash;&gt;-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="3%">3| </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="20%">{{form.type_dg}} </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="10%"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="17%">3.Тип населеного пункту  </td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="50%">  {{form.type_txt}} </td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr> </table>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;span error&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<table align="center" width="100%" cellspacing="0" cellpadding="2" border="0px">&ndash;&gt;-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="50%"><span class="form-error"><b>{{ form.type_dg.errors }}</b></span></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td width="50%"><span class="form-error"><b> {{ form.type_txt.errors }}</b></span></td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr></table>&ndash;&gt;-->
+
+
+
+
+
+
+    <!--{% if input_success %}-->
+        <!--<div><center><span class="input-success"><b>{{ input_success }}</b></span></center></div>-->
+    <!--{% endif %}-->
+
+    <!--<center><button type="submit" class="btn btn-primary btn-orange">Надіслати</button></center>-->
+
+<!--</form>-->
+<!--{% endif %}-->
+
+
+
+  </section>
+{% endblock %}

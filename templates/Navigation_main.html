@@ -8,11 +8,10 @@
     <ul class="sidebar-nav">
        {% if username %}
       <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#page-top">Стуктура сервісу <h6 style="margin-top: -15px; "> Вітаємо, {{ username }}</h6></a></li>
+        <a class="js-scroll-trigger" href="#page-top">Стуктура сервісу <h6 style="margin-top: -15px; "> Вітаємо, {{ first_name }}</h6></a></li>
        {% else %}
       <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Стуктура сервісу </a></li>
-       </li>
-      {% endif %}
+       {% endif %}
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="/home/#page-top"><img class="mr-6sm" src="{% static 'img/icons/supervision_logo.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Home</a>
       </li>
@@ -22,22 +21,22 @@
 
       {% if username %}
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="/home/#about"><img class="mr-6sm" src="{% static 'img/icons/grom_ob.jpg' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbspГромадські об'єкти </a>
+        <a class="js-scroll-trigger" href="/home/#about"><img class="mr-6sm" src="{% static 'img/icons/grom_ob.jpg' %}" alt="Generic placeholder image">&nbsp;&nbsp;Громадські об'єкти </a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="/home/#prom"><img class="mr-6sm" src="{% static 'img/icons/prom_ob.jpg' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Виробничі об'єкти </a>
+        <a class="js-scroll-trigger" href="/home/#prom"><img class="mr-6sm" src="{% static 'img/icons/prom_ob.jpg' %}" alt="Generic placeholder image">&nbsp;&nbsp;Виробничі об'єкти </a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="/home/#services"><img class="mr-6sm" src="{% static 'img/icons/norms.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Перелік документів</a>
+        <a class="js-scroll-trigger" href="/home/#services"><img class="mr-6sm" src="{% static 'img/icons/norms.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;Перелік документів</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+        <a class="js-scroll-trigger" href="/home/#risc"><img class="mr-6sm" src="{% static 'img/icons/risk.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;Ступінь ризику</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#contact">Contact</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="/logout/"><img class="mr-6sm" src="{% static 'img/icons/logout.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbspВийти з системи</a>
+        <a class="js-scroll-trigger" href="/logout/"><img class="mr-6sm" src="{% static 'img/icons/logout.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;Вийти з облікового запису {{ first_name }} </a>
       </li>
       {% endif %}
     </ul>

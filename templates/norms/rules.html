@@ -2,96 +2,91 @@
 
 {% load static %}
 
-
 {% block content %}
- <!-- Portfolio -->
-  <section class="content-section" id="dbn">
+
+
+ <!-- Нормативні документи -->
+<section class="content-section" id="dbn">
+	<div class="container">
+		<div class="content-section-heading text-center">
+			<h3 class="text-secondary mb-0">Перелік нормативних документів</h3>
+			<h2 class="mb-5">Правила пожежної безпеки в Україні та відомчі правила пожежної безпеки </h2>
+		</div>
+	</div>
+</section>
+
+    <hr style="border: 8px solid darkgrey; border-radius: 5px;">
+
+ <!-- Останні додані документи (спільні для усіх блоків) -->
+<div class="section section" >
     <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">Перелік нормативних документів</h3>
-        <h2 class="mb-5">Дозвіллєві заклади </h2>
-      </div>
+        <div class="row">
+            <div class="col-lg-12">
+				<h1><font color="green"><i class="fas fa-file-alt">&nbsp;Останні додані документи</i></font></h1>
+                    <table cellspacing="5" align="center" border="0" cellpadding="3" width="1200">
+                        <thead><th></th><th></th> <th></th></thead>
+                            {% for item in last_added_docks %}
+                         <tr>
+                            <td width="300px;" >
+                                    <!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
+                                <h5> <font color="brown"><i class="far fa-list-alt"> {{ item.normdock.type }}&nbsp;{{ item.normdock.name_code }}</i></font></h5>
+
+                            </td>
+                            <td width="700px">
+                            {% if item.link_name %}
+                              <h5>  <a href="{{item.link_name}}" > "{{ item.normdock.name }}" </a></h5>
+                            {% else %}
+                             <h5>   <a href="{{item.file.url}}" >"{{ item.normdock.name }}" </a></h5>
+                            {% endif %}
+                            </td>
+                             <td width="200px;" >
+                                <h6> <font color="black  "><i class="far fa-calendar-check"> {{ item.normdock.updated }}</i></font></h6>
+                            </td>
+                         </tr>
+                            {% endfor %}
+                    </table>
+            </div>
+        </div>
     </div>
+</div>
+<hr style="border: 1px solid grey; border-radius: 1px;">
+
+ <!-- ДБН -->
 <div class="section section">
-    <h1>Last added docks</h1>
-{% for item in last_added_docks %}
-
-<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
-{% if item.link_name %}
-<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% else %}
-<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
-<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% endif %}
-{% endfor %}
-
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+				<h1><font color="green"><i class="fas fa-file-alt">&nbsp;Правила пожежної безпеки</i></font></h1>
+                    <table cellspacing="5" align="center" border="0" cellpadding="5" width="1200">
+                        <thead><th></th><th></th> <th></th></thead>
+                            {% for item in docs_rules %}
+                         <tr>
+                            <td width="300px;" >
+                                    <!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
+                                <h5> <font color="brown"><i class="far fa-list-alt"> <b>{{ item.normdock.type }}</b>&nbsp;<i>{{ item.normdock.name_code }}</i></i></font></h5>
+                                <h6> <font color="darkblue"><i class="far fa-calendar-alt">&nbsp;від &nbsp;{{ item.normdock.doc_date }}&nbsp;</i></font></h6>
+                                <h6> <font color="darkblue"><i class="far fa-edit">&nbsp;№ &nbsp; {{ item.normdock.doc_num }}&nbsp;</i></font></h6>
+                            </td>
+                            <td width="700px">
+                            {% if item.link_name %}
+                              <h5>  <a href="{{item.link_name}}" > "{{ item.normdock.name }}" </a></h5>
+                            {% else %}
+                             <h5>   <a href="{{item.file.url}}" >"{{ item.normdock.name }}" </a></h5>
+                            {% endif %}
+                            </td>
+                             <td width="200px;" >
+                                <h6> <font color="black "><i class="far fa-calendar-check"> {{ item.normdock.updated }}</i></font></h6>
+                            </td>
+                         </tr>
+                            {% endfor %}
+                   </table>
+            </div>
+        </div>
+    </div>
 </div>
+<hr style="border: 1px solid grey; border-radius: 1px;">
 
-<div class="section section-1">
-    <h1>ДБН</h1>
-{% for item in docs_dbn %}
 
-<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
-{% if item.link_name %}
-<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% else %}
-<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
-<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% endif %}
-{% endfor %}
-
-</div>
-
-<div class="section section-2">
-    <h1>СНиП</h1>
-{% for item in docs_snip %}
-
-<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
-{% if item.link_name %}
-<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% else %}
-<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
-<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% endif %}
-{% endfor %}
-
-</div>
-
-<div class="section section-2">
-    <h1>ППБ</h1>
-{% for item in docs_rules %}
-
-<!--якщо у адмінці УРЛ посилання - то завантажуеється УРЛ, а якщо посилання на завантажений Файл, то завантажується файл з МЕДІА-->
-{% if item.link_name %}
-<a href="{{item.link_name}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% else %}
-<!--для роботи відображення змісту файлу треба додавати до шляху .url-->
-<a href="{{item.file.url}}" >{{ item.normdock.type }}  {{ item.normdock.name_code }} "{{ item.normdock.name }}".</a> <br>
-{% endif %}
-{% endfor %}
-
-</div>
-
-	  <!--&lt;!&ndash; Slider &ndash;&gt;-->
-
-	<!--<div class="container-photo">-->
-		<!--<div class="row centered">-->
-
-            <!--{% for item in object.articleimage_set.all %}-->
-                <!--<div> <a href="{{ item.image.url }}" class="strip" data-strip-group="shared-options" ><img src="{{ item.image.url }}"  title="Натисніть для збільшення фото"  id="art_img_sm" hspace="10" vspace="10"></a> </p></div>-->
-			<!--{% endfor %}-->
- 		    <!--<span class="top-title"><em><b>Дата публікації:</b> {{object.pub_date}}<br></em></span>-->
-            <!--{% for item in object.description_set.all %} &lt;!&ndash;item -любое слово; in object - это переменная из вьюхи; .description - название модели маленькими буквами; _set.all- выбрать все записи&ndash;&gt;-->
-
-		<!--</div>-->
-	<!--</div>-->
-    <!--<div class="container-content">-->
-        <!--<div ><h3><b> <em> Вимоги нормативно-правового акту:</em></b></h3>  <h4><p> {{item.descr_name}}</h4></div>-->
-        <!--<span ><h4><em><b>Посилання на норми:</b> <p><u>{{item.law_title}}</u><b>&nbsp;&nbsp;({{item.law_chapter}})</b></p></h4></em></span><br>-->
-	<!--</div>-->
-			<!--{% endfor %}-->
-
-  </section>
 
 
 {% endblock %}

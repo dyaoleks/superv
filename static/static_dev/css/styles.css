@@ -1,13 +1,20 @@
+
+#normdocs { height: 600px;}
+
+
 #content_1 {
      margin: 0px 0px 10px 0px;
      padding: 10px;
      height: 350px;
      border: 1px solid #ccc;}
 
+/***** налаштування пошукогової форми у навбарі search  *****/
+
+#search {margin-left: 15px;}
+
 /***** сторінка search results *****/
 
 @import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
-
 
 .mb20 { margin-bottom: 20px; }
 
@@ -41,17 +48,11 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
     background-position:center center;background-repeat:no-repeat;background-size:cover}
  .callout-2 h2{font-size:3.5rem;font-weight:700;display:block;max-width:60rem}
 
+#correction_icons {font-weight: 900; padding-top: 16px;}
 
+#correction_icons_1 {padding-top: 35px;}
 
-#correction_icons {
-    font-weight: 900;
-    padding-top: 16px;}
-
-#correction_icons_1 {
-    padding-top: 35px;}
-
-#correction_icons_2 {
-    padding-top: 20px;}
+#correction_icons_2 {padding-top: 20px;}
 /***** slideart (start) *****/
 
 .slider {
@@ -83,10 +84,7 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
     margin-left: 50px;
 }
 
-.container-content {
-    margin-left: 50px;
-    margin-right: 50px;
-}
+.container-content {margin-left: 50px; margin-right: 50px;}
 .container-content h4 p {text-indent: 1.5em; margin-top: 0; text-align: -webkit-auto;}
 .container-content h3 {color: #0015a5;}
 .container-content h4 {font-weight: 400}
@@ -119,9 +117,6 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
                  0 0 skyblue;
     }
 
-#instr {
-    height: 30px;
-    width: 30px;
-}
+#instr {height: 30px; width: 30px;}
 
 

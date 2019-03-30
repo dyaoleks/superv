@@ -9,7 +9,8 @@ from django.contrib import auth
 def object(request, object_id):
     object = ObjectType.objects.get(id=object_id)
     username = auth.get_user(request).username
-
+    if username:
+        first_name = auth.get_user(request).first_name
     session_key = request.session.session_key
     if not session_key:
         request.session.cycle_key()

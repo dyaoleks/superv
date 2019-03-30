@@ -2,6 +2,7 @@ from django.shortcuts import render
 from laws . models import *
 from level . models import *
 from norms . models import *
+from  . models import *
 from django.contrib import auth
 # для пошуку
 from django.contrib import messages
@@ -38,47 +39,49 @@ def instruction(request):
 
 def search(request):
     username = auth.get_user(request).username
-
     if username:
-        print (username)
-
-    else:
-        print ('шо за нахуй')
+        email = auth.get_user(request).email
+        first_name = auth.get_user(request).first_name
+        last_name = auth.get_user(request).last_name
     if request.method == 'POST':
-        print (request.POST)
-        srch = request.POST['srh']
-        print (srch)
+        request_value = request.POST['request_value']
+        print (request_value)
+        search_req = SearchRequest()
+        search_req.request_value = request.POST.get("request_value")
+        search_req.created = request.POST.get("created")
+        search_req.updated = request.POST.get("updated")
+        search_req.username = request.POST.get("username")
+        search_req.save()
 
-        if srch:
-            model_1_result = Links.objects.filter (Q(normdock__name__icontains=srch) |
-                                             Q(normdock__pub_date__icontains=srch) |
-                                            Q(normdock__type__icontains=srch) |
-                                            Q(normdock__name_code__icontains=srch))
+        print (request.POST)
+
+
+        if request_value:
+            model_1_result = Links.objects.filter (Q(normdock__name__icontains=request_value) |
+                                             Q(normdock__pub_date__icontains=request_value) |
+                                            Q(normdock__type__icontains=request_value) |
+                                            Q(normdock__name_code__icontains=request_value))
             result1 = model_1_result.count()
 
-            model_2_result = Description.objects.filter (Q(descr_name__icontains=srch) |
-                                            Q(law_title__icontains=srch)|
-                                            Q(objecttype__supervposition__full_name__icontains=srch)|
-                                            Q(objecttype__pub_date__icontains=srch))
-                                            # Q(supervchapter__icontains=srch)
+            model_2_result = Description.objects.filter (Q(descr_name__icontains=request_value) |
+                                            Q(law_title__icontains=request_value)|
+                                            Q(objecttype__supervposition__full_name__icontains=request_value)|
+                                            Q(objecttype__headline__icontains=request_value) |
+                                            Q(objecttype__pub_date__icontains=request_value))
+
             result2 = model_2_result.count()
             total_results = result1 + result2
+
+
             if model_1_result:
                 print("model_1_result")
             if model_2_result:
                 print("model_2_result")
                 print (total_results)
+
                 return render(request,'base/search.html', locals())
 
-            # else:
-            #     messages.error(request, 'Збігів не знайдено', locals())
-            if model_2_result:
-                print("model_2_result")
-                return render(request,'base/search.html', locals())
-            # else:
-            #     messages.error(request, 'Збігів не знайдено', locals())
         else:
             return HttpResponseRedirect('/search/', locals())
 
     return render(request, 'base/search.html', locals())
-

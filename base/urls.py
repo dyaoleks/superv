@@ -24,6 +24,6 @@ urlpatterns = [
     url(r'^info/$', views.info, name='info'),
     url(r'^info/instruction/$', views.instruction, name='instruction'),
     url(r'^search/$', views.search, name='search'),
-
+    url(r'^create/$', views.search, name='search'),
 
    ]

@@ -1250,17 +1250,6 @@
             <a href="https://unsplash.com/">Unsplash</a>!</p>
 
 
-			<!--поле для пошуку-->
-<div class="container-fluid">
-    <div class="row ">
-        <div class="span6" style="float: none; margin: 0 auto;">
-      <form class="form-inline" id="search" action="/search/" method="post" > {% csrf_token %}
-          <input class="form-control"  type="text" placeholder="Введіть запит" aria-label="Search" name="srh">
-		  <button class="btn btn-warning " type="submit">Шукати</button>
-      </form>
-	  </div>
-	</div>
-
 
 			<div class="accordion" id="accordionExample">
 
@@ -1275,7 +1264,7 @@
 
 <!-- Services -->
   <section class="content-section bg-primary text-white text-center" id="services">
-    <div class="container">
+    <div class="container" id="normdocs">
       <div class="content-section-heading">
         <h3 class="text-secondary mb-0">Перелік</h3>
         <h2 class="mb-5">Нормативно-правових актів, що використовуються для проведення перевірок</h2>
@@ -1285,18 +1274,18 @@
       <div class="row">
 
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-			<a href="/norm/#dbn"><span class="service-icon rounded-circle mx-auto mb-3" id="correction_icons_1" >
-            <i class="icon-screen-smartphone"></i>
-			  </span></a>
+			<span class="service-icon rounded-circle mx-auto mb-3" id="correction_icons_1" >
+            <a href="/norm/#dbn"><i class="icon-screen-smartphone"></i></a>
+			  </span>
           <h4>
             <strong>Нормативні акти</strong>
           </h4>
           <p class="text-faded mb-0">(ДБН, ГОСТ, ВБН, СНиП тощо)</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3" id="correction_icons_1">
+          <a href="/rules/#dbn"><span class="service-icon rounded-circle mx-auto mb-3" id="correction_icons_1">
             <i class="icon-pencil"></i>
-          </span>
+		  </span></a>
           <h4>
             <strong>Правила пожежної безпеки</strong>
           </h4>
@@ -1321,6 +1310,12 @@
           <p class="text-faded mb-0">I mustache you a question...</p>
         </div>
       </div>
+
+
+
+
+
+
     </div>
   </section>
 

@@ -33,6 +33,7 @@ def create(request):
         level.index_name = request.POST.get("index_name")
         level.scores = request.POST.get("scores")
         level.username = request.POST.get("username")
+
         level.is_main = request.POST.get("is_main")
         level.save()
 

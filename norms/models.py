@@ -26,8 +26,11 @@ class NormDock(models.Model):
     pub_date = models.DateField()
     name = models.CharField(max_length=256)
     type = models.CharField(max_length=12, blank=True, null=True, default=None  )
-    name_code = models.CharField(max_length=24)
+    name_code = models.CharField(max_length=96)
+    doc_date = models.DateField(blank=True, null=True, default=None)
+    doc_num = models.CharField(max_length=8, blank=True, null=True, default=None  )
     is_active = models.BooleanField(default=True)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
 
     # for sorting by date of publ.

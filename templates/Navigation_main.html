@@ -9,9 +9,23 @@
        {% if username %}
       <li class="sidebar-brand">
         <a class="js-scroll-trigger" href="#page-top">Стуктура сервісу <h6 style="margin-top: -15px; "> Вітаємо, {{ first_name }}</h6></a></li>
-       {% else %}
-      <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Стуктура сервісу </a></li>
-       {% endif %}
+
+
+       <!-- форма пошукового запиту -->
+      <li class="sidebar-nav-item">
+      <form class="form-inline" id="search" action="/search/#search_res" method="post" > {% csrf_token %}
+          <input class="form-control"  type="text" placeholder="Введіть запит" aria-label="Search" name="request_value">
+          <input class="form-control"  type="hidden" value="{{username}}" name="username"/>
+          <input class="form-control"  type="hidden" value="{{ total_results }}" name="total_results"/>
+		  <button class="btn btn-warning " type="submit">Шукати</button>
+      </form>
+      </li>
+
+
+      {% else %}
+       <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Стуктура сервісу </a></li>
+
+      {% endif %}
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="/home/#page-top"><img class="mr-6sm" src="{% static 'img/icons/supervision_logo.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;&nbsp;Home</a>
       </li>
@@ -32,12 +46,15 @@
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="/home/#risc"><img class="mr-6sm" src="{% static 'img/icons/risk.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;Ступінь ризику</a>
       </li>
+      <!--<li class="sidebar-nav-item">-->
+        <!--<a class="js-scroll-trigger" href="#contact">Contact</a>-->
+      <!--</li>-->
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#contact">Contact</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="/logout/"><img class="mr-6sm" src="{% static 'img/icons/logout.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;Вийти з облікового запису {{ first_name }} </a>
+        <a class="js-scroll-trigger" href="/logout/"><img class="mr-6sm" src="{% static 'img/icons/logout.png' %}" alt="Generic placeholder image">&nbsp;&nbsp;Вийти з облікового запису </a>
       </li>
       {% endif %}
     </ul>
   </nav>
+
+
+

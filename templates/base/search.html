@@ -3,201 +3,80 @@
 
 {% block search %}
 
+<!------------------------------------------------------------------------
+ Заголовок (+ кількість пошукових запитів та + значення пошукового запиту
+ ------------------------------------------------------------------------>
 
-
-    <!--<section class="col-xs-12 col-sm-6 col-md-12">-->
-		<!--<article class="search-result row">-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-3">-->
-				<!--<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>-->
-			<!--</div>-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-2">-->
-				<!--<ul class="meta-search">-->
-					<!--<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>-->
-					<!--<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>-->
-					<!--<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-7 excerpet">-->
-				<!--<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>-->
-				<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>-->
-                <!--<span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>-->
-			<!--</div>-->
-			<!--<span class="clearfix borda"></span>-->
-		<!--</article>-->
-
-        <!--<article class="search-result row">-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-3">-->
-				<!--<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>-->
-			<!--</div>-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-2">-->
-				<!--<ul class="meta-search">-->
-					<!--<li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>-->
-					<!--<li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>-->
-					<!--<li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-7">-->
-				<!--<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>-->
-				<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>-->
-                <!--<span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>-->
-			<!--</div>-->
-			<!--<span class="clearfix borda"></span>-->
-		<!--</article>-->
-
-		<!--<article class="search-result row">-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-3">-->
-				<!--<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>-->
-			<!--</div>-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-2">-->
-				<!--<ul class="meta-search">-->
-					<!--<li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>-->
-					<!--<li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>-->
-					<!--<li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>-->
-				<!--</ul>-->
-			<!--</div>-->
-			<!--<div class="col-xs-12 col-sm-12 col-md-7">-->
-				<!--<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>-->
-				<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>-->
-                <!--<span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>-->
-			<!--</div>-->
-			<!--<span class="clearfix border"></span>-->
-		<!--</article>-->
-
-	<!--</section>-->
-
-
-
-<!--<section class="content-section" id="">-->
-	<!--<div class="container">-->
-		<!--<div class="content-section-heading text-center">-->
-
-                <!--{% if messages %}-->
-                    <!--<ul class="messages">-->
-                        <!--{% for item in messages %}-->
-                        <!--<li style="color: red"> {{ item }} </li>-->
-                        <!--{% endfor %}-->
-                    <!--</ul>-->
-                <!--{% endif %}-->
-        <!--</div><br>-->
-
-
-            <!--<div style="color: blue">-->
-
-    <hgroup class="mb20">
-		<h1>Результати пошуку</h1>
-		<h2 class="lead"><strong class="text-danger"></strong> {{ total_results }} результати(ів) знайдено за пошуковим запитом <strong class="text-danger">"{{srch}}"</strong></h2>
-	</hgroup>
+<hgroup class="mb20" id="search_res">
+	<center><h1>Результати пошуку</h1></center>
+	<h2 class="lead">Знайдено <strong class="text-danger">{{ total_results }}</strong>  результати(ів) за пошуковим запитом <strong class="text-danger">"{{request_value}}"</strong></h2>
+</hgroup>
 
 {% if model_1_result %}
 <div class="container">
 
-
- <!--РОЗДІЛ НОРМИ-->
-
+<!-------------------------------------------------------
+ РОЗДІЛ НОРМИ
+ -------------------------------------------------------->
+	<hr style="border: 5px solid grey; border-radius: 1px;">
+<center><h3>У реєстрі нормативно-правових актів з питань пожежної безпеки</h3></center>
+	<h2 class="lead">Знайдено <strong class="text-danger">{{ result1 }}</strong>  результати(ів)</h2><hr>
 {% for item in model_1_result %}
-        <section class="col-xs-12 col-sm-6 col-md-12">
-		<article class="search-result row">
 
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="fas fa-calendar-day"></i> <span>{{ item.normdock.pub_date }}</span></li>
+<section class="col-lg-12">
+	<article class="search-result row">
+		<div class="col-lg-4">
+			<ul class="meta-search">
+				<li><i class="fas fa-calendar-day"></i> <span>{{ item.normdock.pub_date }}</span></li>
+			</ul>
+		</div>
+	<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+		<h3>{{ item.normdock.type }} {{ item.normdock.name_code }}</h3>
+		<h5>	
+			{% if item.link_name %}
+			<td><a href="{{item.link_name}}">{{ item.normdock.name }}</a>
+			{% else  %}
+			<td><a href="{{item.file.url}}">{{ item.normdock.name }}</a>
+			{% endif  %}
+		</h5>
+	</div>
+	</article>
+</section> <hr>
 
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3>{{ item.normdock.type }} {{ item.normdock.name_code }}</h3>
+{% endfor %}
 
-                        {% if item.link_name %}
-                        <td><a href="{{item.link_name}}">{{ item.normdock.name }}</a>
-                        {% else  %}
-                        <td><a href="{{item.file.url}}">{{ item.normdock.name }}</a>
-                        {% endif  %}
-
-
-			</div>
-
-		</article>
-        </section>
-
-    {% endfor %}
 {% endif %}
 
-<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!-------------------------------------------------------
+ РОЗДІЛ ПЕРЕВІРКА
+ -------------------------------------------------------->
 
 {% if model_2_result %}
 <div class="container">
-
- <!--РОЗДІЛ ПЕРЕВІРКИ-->
+<hr style="border: 5px solid grey; border-radius: 1px;">
+<center><h3>У розділі перевірок об'єктів </h3></center>
+<h2 class="lead">Знайдено <strong class="text-danger">{{ result2 }}</strong>  результати(ів) </strong></h2><hr>
 {% for item in model_2_result %}
 
-        <section class="col-lg-12">
-		<article class="search-result row">
+<section class="col-lg-12">
+	<article class="search-result row">
+	<div class="col-lg-4">
+		<ul class="meta-search">
+			<li><i class="fas fa-calendar-day"></i> <span>{{ item.objecttype.pub_date }}</span></li>
+			<li><i class="fas fa-tags"></i> <span> {{ item.objecttype.headline }} </span></li>
+		</ul>
+	</div>
+	<div class="col-lg-8">
+		<h3>{{item.objecttype.supervchapter.full_name}} / {{item.objecttype.supervposition.full_name}}</h3>
+		<h5><a href="/object/{{ item.objecttype.id }}/#portfolio">{{ item.descr_name|truncatechars_html:200 }}</a></h5>
+	</div>
+	</article> <hr>
+</section>
 
-			<div class="col-lg-4">
-				<ul class="meta-search">
-					<li><i class="fas fa-calendar-day"></i> <span>{{ item.objecttype.pub_date }}</span></li>
-                    <li><i class="fas fa-tags"></i> <span> {{ item.objecttype.supervposition.full_name }} </span></li>
-				</ul>
-			</div>
-			<div class="col-lg-8">
-				<h3><a href="/object/{{ item.id }}/#portfolio">{{ item.law_title }}</a></h3>
+{% endfor %}
 
-                <h5><a href="/object/{{ item.id }}/#portfolio">{{ item.descr_name|truncatechars_html:150 }}</a></h5>
-
-
-			</div>
-
-		</article>
-        </section>
-
-    {% endfor %}
 {% endif %}
 
-
-
-
-
-
-
-<!--<div class="content-section-heading text-center">-->
-
-            <!--{% if model_2_result %}-->
-<!--РОЗДІЛ ПЕРЕВІРКА-->
-                <!--{% for item in model_2_result %}-->
-
-                <!--<table align="center" width="95%" cellspacing="0" cellpadding="2" border="0px"  >-->
-                    <!--<tr>-->
-
-                        <!--<td width="80">Date: </td>-->
-                        <!--<td>{{ item.descr_name }}</td>-->
-
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>Title: </td>-->
-                        <!--<td><a href="/object/{{ item.id }}/#portfolio">{{ item.law_title }}</a>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>Content: </td>-->
-                        <!--<td>{{ item.objecttype.pub_date }}</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>Content: </td>-->
-                        <!--<td>{{ item.objecttype.supervposition.full_name }}</td>-->
-                    <!--</tr>-->
-
-                <!--</table>-->
-            <!--</div>-->
-
-
-    <!--<hr>-->
-                <!--{% endfor %}-->
-
-            <!--{% endif %}-->
-    <!--</div>-->
-    <!--</div>-->
-  <!--</section>-->
-
-<!--</div>-->
 {% endblock search %}
 
 
